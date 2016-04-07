@@ -52,12 +52,33 @@
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-		 <script type="text/javascript">
-           document.addEventListener("deviceready", onDeviceReady, false);
+		<script type="text/javascript">
+         document.addEventListener("deviceready", onDeviceReady, false);
 
 			function onDeviceReady() {
-				alert('hi');
-			}
+			alert("Device Ready");
+			var push = PushNotification.init({ "android": {"senderID": "873708968822"},
+			"ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
+
+			push.on('registration', function(data) {
+			console.log(data.registrationId);
+			$("#gcm_id").html(data.registrationId);
+			});
+
+			push.on('notification', function(data) {
+			console.log(data.message);
+			alert(data.title+" Message: " +data.message);
+			// data.title,
+			// data.count,
+			// data.sound,
+			// data.image,
+			// data.additionalData
+			});
+
+			push.on('error', function(e) {
+			console.log(e.message);
+			});
+		}
         </script>
     </body>
 </html>
