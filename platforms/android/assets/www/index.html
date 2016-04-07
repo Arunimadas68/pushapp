@@ -33,7 +33,8 @@
 		</style>
     </head>
     
-    <body onload="loaded();">
+    <body>
+	<iframe src="http://app.pradict.com" onload="loaded();" name="container-frame" id="container-frame" seamless="seamless" width="100%" height="100%" style="overflow-x:hidden; border:none;"></iframe>
 		<div id="blanker"></div>
 		<div id="offline-screen"></div>	
 		<script type="text/javascript" src="js/index.js"></script>
@@ -83,17 +84,28 @@
 				// Blanker on change				
 				document.addEventListener("online", deviceOnline, false);
 				document.addEventListener("offline", deviceOffline, false);
-				/*var networkState = navigator.connection.type;
+            alert("Device Ready");
+			var push = PushNotification.init({ "android": {"senderID": "873708968822"},
+			"ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 
+			push.on('registration', function(data) {
+			console.log(data.registrationId);
+			$("#gcm_id").html(data.registrationId);
+			});
 
-				if(networkState == Connection.NONE) {
-					doWhenOffline();
-                    
+			push.on('notification', function(data) {
+			console.log(data.message);
+			alert(data.title+" Message: " +data.message);
+			// data.title,
+			// data.count,
+			// data.sound,
+			// data.image,
+			// data.additionalData
+			});
 
-				}
-				else{
-					doWhenOnline();
-				}   */             				
+			push.on('error', function(e) {
+			console.log(e.message);
+			});												
 			}			
 			
 			function deviceOnline(){
@@ -141,5 +153,8 @@
 				getMyUi('0');
 			}
 		</script>
+		<h1>Push Notification Example</h1>
+		Your GCM ID : <br/>
+		<p id="gcm_id"></p>
     </body>
 </html>
