@@ -84,28 +84,28 @@
 				// Blanker on change				
 				document.addEventListener("online", deviceOnline, false);
 				document.addEventListener("offline", deviceOffline, false);
-            alert("Device Ready");
-			var push = PushNotification.init({ "android": {"senderID": "873708968822"},
-			"ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
+				alert("Device Ready");
+				var push = PushNotification.init({ "android": {"senderID": "873708968822"},
+				"ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 
-			push.on('registration', function(data) {
-			console.log(data.registrationId);
-			$("#gcm_id").html(data.registrationId);
-			});
+				push.on('registration', function(data) {
+				console.log(data.registrationId);
+				$("#gcm_id").html(data.registrationId);
+				});
 
-			push.on('notification', function(data) {
-			console.log(data.message);
-			alert(data.title+" Message: " +data.message);
-			// data.title,
-			// data.count,
-			// data.sound,
-			// data.image,
-			// data.additionalData
-			});
+				push.on('notification', function(data) {
+				console.log(data.message);
+				alert(data.title+" Message: " +data.message);
+				// data.title,
+				// data.count,
+				// data.sound,
+				// data.image,
+				// data.additionalData
+				});
 
-			push.on('error', function(e) {
-			console.log(e.message);
-			});												
+				push.on('error', function(e) {
+				console.log(e.message);
+				});												
 			}			
 			
 			function deviceOnline(){
@@ -122,7 +122,7 @@
 
 				document.getElementById('offline-screen').style.display = 'none';
 				
-				pushNotification = window.plugins.pushNotification;                
+				/*pushNotification = window.plugins.pushNotification;                
 				pushNotification.register(
 					tokenHandler,
 					errorHandler,
@@ -132,7 +132,7 @@
 						"alert":"true",
 						"ecb":"onNotificationAPN"
 					}
-				);
+				);*/
 			}
 			
 			function doWhenOffline(){				
