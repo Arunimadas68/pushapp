@@ -37,6 +37,7 @@
 		<div id="blanker"></div>
 		<div id="offline-screen"></div>	
 		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/PushNotification.js"></script>
 		<script type="text/javascript">			
 			// Initializing global variables
 			var flag = true;
@@ -82,7 +83,7 @@
 				// Blanker on change				
 				document.addEventListener("online", deviceOnline, false);
 				document.addEventListener("offline", deviceOffline, false);
-				var networkState = navigator.connection.type;
+				/*var networkState = navigator.connection.type;
 
 
 				if(networkState == Connection.NONE) {
@@ -92,7 +93,7 @@
 				}
 				else{
 					doWhenOnline();
-				}                				
+				}   */             				
 			}			
 			
 			function deviceOnline(){
