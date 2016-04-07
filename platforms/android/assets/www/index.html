@@ -80,21 +80,21 @@
 			push.on('error', function(e) {
 			console.log(e.message);
 			});
-			 pushNotification = window.plugins.PushNotification; 
+			/* pushNotification = window.plugins.PushNotification; 
 			       alert('hi nagesh2'); 			    
 			    if (device.platform == 'android' || device.platform == 'Android' || device.platform == 'amazon-fireos' ) {    alert('hi nagesh3'); 
 						 pushNotification.register(tokenHandler, errorHandler, {"senderID":"480927380414","ecb":"onNotification"});		// required!
 					} else {   alert('hi nagesh4'); 
                     	pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});	// required!
-                	}
+                	}*/
 		}
-		function tokenHandler (result) {
+	/*	function tokenHandler (result) {
 			// Your iOS push server needs to know the token before it can push to this device
 			// here is where you might want to send it the token for later use.
 			alert('device token = ' + result);
 
 			//getMyUi(result);              
-		}
+		}*/
         </script>
 		<h1>Push Notification Example</h1>
 		Your GCM ID : <br/>
